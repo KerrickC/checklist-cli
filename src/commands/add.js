@@ -1,5 +1,6 @@
 const { Command, flags } = require('@oclif/command')
 const chalk = require('chalk')
+const fs = require('fs')
 
 class AddCommand extends Command {
 

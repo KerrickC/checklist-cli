@@ -10,7 +10,9 @@
     "@oclif/command": "^1.6.1",
     "@oclif/config": "^1.15.1",
     "@oclif/plugin-help": "^3.1.0",
-    "chalk": "^4.1.0"
+    "chalk": "^4.1.0",
+    "fs-extra": "^9.0.1",
+    "os": "^0.1.1"
   },
   "devDependencies": {
     "@oclif/dev-cli": "^1.22.2",
