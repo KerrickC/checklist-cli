@@ -22,7 +22,6 @@ const putData = (data) => {
         })
 
     })
-
 }
 
 module.exports = { putData }

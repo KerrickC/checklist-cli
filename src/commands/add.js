@@ -15,13 +15,11 @@ class AddCommand extends Command {
       this.log(`${chalk.green('[Success]')} Added new todo: ${args.addtodo}`)
       //format to JSON
       const data = { name: args.addtodo }
-      //api call
+      //"api" call
       todoApi.putData(data)
     } catch (err) {
       console.error(err)
     }
-
-
   }
 }
 
