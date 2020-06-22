@@ -14,7 +14,7 @@ class ShowCommand extends Command {
 
       if (listAll) {
 
-        const todosdata = await todoApi.showAll()
+        const todosdata = await todoApi.getData()
         //console.log(todosdata)
 
         const table = new Table({
@@ -30,7 +30,7 @@ class ShowCommand extends Command {
         todosdata.todos.map((n, i) => {
           const todoName = todosdata.todos[i].title
           const priority = todosdata.todos[i].priority
-          table.push([i, todoName, priority])
+          table.push([i + 1, todoName, priority])
         })
 
         var spinner = new Spinner('processing.. %s')

@@ -26,7 +26,7 @@ const putData = (data) => {
     })
 }
 
-const showAll = async () => {
+const getData = async () => {
     const data_R = await fse.readFile(dir)
     try {
         let dataRecieved = JSON.parse(data_R)
@@ -37,7 +37,22 @@ const showAll = async () => {
 
 }
 
+const derelete = async (data) => {
+    //delete file
+    try {
+        await fse.unlink(dir)
+        await fse.writeFile(dir, data, (err) => {
+            if (err) console.error(err)
+        })
+    } catch (err) {
+        console.log(err)
+    }
+    //recreate file
+    //get data
+    //put updated data
+}
 
-module.exports = { putData, showAll }
+
+module.exports = { putData, getData, derelete }
 
 

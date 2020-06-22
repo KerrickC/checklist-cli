@@ -1,12 +1,1 @@
-{
-    "todos": [
-        {
-            "title": "Groceries",
-            "priority": "low"
-        },
-        {
-            "title": "Call GatorDining",
-            "priority": "urgent"
-        }
-    ]
-}
+{"todos":[{"title":"finish cli app","priority":"normal"}]}
