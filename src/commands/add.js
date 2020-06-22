@@ -31,6 +31,8 @@ class AddCommand extends Command {
   }
 }
 
+AddCommand.description = 'Add a todo to the todo list'
+
 //list arguments here
 AddCommand.args = [{
   name: 'addtodo',
