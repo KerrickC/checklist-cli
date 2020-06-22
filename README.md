@@ -28,16 +28,34 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-* [`checklist-cli add`](#checklist-cli-add)
+* [`checklist-cli add ADDTODO`](#checklist-cli-add-addtodo)
+* [`checklist-cli complete`](#checklist-cli-complete)
+* [`checklist-cli edit`](#checklist-cli-edit)
 * [`checklist-cli help [COMMAND]`](#checklist-cli-help-command)
+* [`checklist-cli show`](#checklist-cli-show)
 
-## `checklist-cli add`
+## `checklist-cli add ADDTODO`
+
+```
+USAGE
+  $ checklist-cli add ADDTODO
+
+ARGUMENTS
+  ADDTODO  add todo to list
+
+OPTIONS
+  -p, --priority=priority  (required) [default: low] Todo priority level - (urgent, important, normal, low)
+```
+
+_See code: [src/commands/add.js](https://github.com/KerrickC/checklist-cli/blob/v0.0.0/src/commands/add.js)_
+
+## `checklist-cli complete`
 
 Describe the command here
 
 ```
 USAGE
-  $ checklist-cli add
+  $ checklist-cli complete
 
 OPTIONS
   -n, --name=name  name to print
@@ -47,7 +65,25 @@ DESCRIPTION
   Extra documentation goes here
 ```
 
-_See code: [src/commands/add.js](https://github.com/KerrickC/checklist-cli/blob/v0.0.0/src/commands/add.js)_
+_See code: [src/commands/complete.js](https://github.com/KerrickC/checklist-cli/blob/v0.0.0/src/commands/complete.js)_
+
+## `checklist-cli edit`
+
+Describe the command here
+
+```
+USAGE
+  $ checklist-cli edit
+
+OPTIONS
+  -n, --name=name  name to print
+
+DESCRIPTION
+  ...
+  Extra documentation goes here
+```
+
+_See code: [src/commands/edit.js](https://github.com/KerrickC/checklist-cli/blob/v0.0.0/src/commands/edit.js)_
 
 ## `checklist-cli help [COMMAND]`
 
@@ -65,4 +101,22 @@ OPTIONS
 ```
 
 _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v3.1.0/src/commands/help.ts)_
+
+## `checklist-cli show`
+
+Describe the command here
+
+```
+USAGE
+  $ checklist-cli show
+
+OPTIONS
+  -n, --name=name  name to print
+
+DESCRIPTION
+  ...
+  Extra documentation goes here
+```
+
+_See code: [src/commands/show.js](https://github.com/KerrickC/checklist-cli/blob/v0.0.0/src/commands/show.js)_
 <!-- commandsstop -->
