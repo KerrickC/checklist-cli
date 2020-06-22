@@ -1,1 +1,8 @@
-{"todos":[{"title":"thisdo","priority":"urgent"}]}
+{
+    "todos": [
+        {
+            "title": "thisdo",
+            "priority": "urgent"
+        }
+    ]
+}
