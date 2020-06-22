@@ -43,7 +43,40 @@ class CompleteCommand extends Command {
 
 
       } else if (title) {
+        const todosdata = await todoApi.getData()
+        const splicableData = todosdata.todos
 
+        var spinner = new Spinner('completing task.. %s')
+        spinner.setSpinnerString(4)
+        spinner.start()
+        setTimeout(() => {
+          splicableData.find((n, i) => {
+
+            if (splicableData[i].title === title) {
+
+              splicableData.splice(i, 1)
+              var dataObj = {
+                todos: []
+              };
+
+              splicableData.map((n, j) => {
+                dataObj.todos.push(splicableData[j])
+              })
+
+              todoApi.derelete(JSON.stringify(dataObj))
+
+              //console.log(splicableData)
+
+              console.log('\ntask complete! \n')
+              spinner.stop()
+
+            } else {
+              console.log('\n \ntodo not found!')
+              spinner.stop()
+            }
+          })
+
+        }, 2000)
 
 
       }
