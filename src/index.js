@@ -26,7 +26,3 @@ fse.mkdirp(dir, (err) => {
 })
 
 
-/*
-? ADD BOOLEAN FLAG FOR INITIAL COMPLETE
-? ADD EDIT FUNCTIONALITY
-*/
