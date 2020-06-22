@@ -11,4 +11,8 @@ EditCommand.description = `NOT YET WORKING`
 EditCommand.flags = {
 }
 
+EditCommand.args = [{
+
+}]
+
 module.exports = EditCommand

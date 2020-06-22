@@ -9,21 +9,16 @@ class AddCommand extends Command {
     const { args, flags } = this.parse(AddCommand)
 
     try {
-      //if command = "add" && argument = <name>, log message && make API call to add todo to file 
-      this.log(`${chalk.green('[Success]')} Added new todo: ${args.addtodo}`)
 
       let priority = flags.priority
 
-      // if (priority != 'low' || priority != 'normal' || priority != 'important' || priority != 'urgent') {
-      //   console.log('invalid priority, setting to default (low)')
-      //   priority = 'low'
-      // }
 
       const name = args.addtodo
       //"api" call
       if (priority && name) {
         const data = { nam: `${name}`, prior: `${priority}` }
         todoApi.putData(data)
+        this.log(`${chalk.green('[Success]')} Added new todo: ${args.addtodo}`)
       }
     } catch (err) {
       console.error(err)
@@ -42,7 +37,12 @@ AddCommand.args = [{
 
 //flags
 AddCommand.flags = {
-  priority: flags.string({ char: 'p', description: 'Todo priority level - (urgent, important, normal, low)', required: true })
+  priority: flags.string({
+    char: 'p', description: 'Todo priority level - (urgent, important, normal, low)', required: true,
+    options: [
+      'low', 'normal', 'important', 'urgent'
+    ]
+  })
 }
 
 //export AddCommand
