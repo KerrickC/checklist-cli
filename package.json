@@ -1,7 +1,12 @@
 {
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "license": "MIT",
   "name": "checklist-cli",
   "version": "0.0.0",
   "author": "Kerrick Cavanaugh @KerrickC",
+  "description": "An interactive CLI to-do list app",
   "bin": {
     "checklist-cli": "./bin/run"
   },
@@ -41,6 +46,9 @@
     "oclif"
   ],
   "license": "MIT",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
   "main": "src/index.js",
   "oclif": {
     "commands": "./src/commands",

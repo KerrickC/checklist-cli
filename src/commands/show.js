@@ -38,6 +38,8 @@ class ShowCommand extends Command {
           console.log(table.toString());
           spinner.stop();
         }, 2000);
+      } else if (args.completed) {
+        
       }
     } catch (err) {
       console.log(err);
@@ -55,7 +57,12 @@ ShowCommand.args = [
   {
     name: "all",
     description: "List all todos",
-    require: true,
+    require: false,
+  },
+  {
+    name: "completed",
+    description: "List completed todos",
+    require: false,
   },
 ];
 

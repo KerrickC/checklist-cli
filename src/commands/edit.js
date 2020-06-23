@@ -55,7 +55,7 @@ class EditCommand extends Command {
   }
 }
 
-EditCommand.description = `Edit a todo in your todo list`;
+EditCommand.description = `Edit a todo in your todo list by index`;
 
 EditCommand.flags = {
   index: flags.integer({
