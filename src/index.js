@@ -1,28 +1,28 @@
-module.exports = require('@oclif/command')
+module.exports = require("@oclif/command");
 
-const fse = require('fs-extra')
-const os = require('os')
+const fse = require("fs-extra");
+const os = require("os");
 
-const { username, homedir } = os.userInfo()
-const dir = `${homedir}/checklist-cli/src/data`
+const { username, homedir } = os.userInfo();
+const dir = `${homedir}/checklist-cli/src/data`;
 
 var dataObj = {
-    todos: []
+  todos: [],
 };
 
-dataObj.todos.push({ title: "Sample todo" })
+dataObj.todos.push({ title: "Sample todo" });
 
-var json = JSON.stringify(dataObj)
+var json = JSON.stringify(dataObj);
 
 fse.mkdirp(dir, (err) => {
-    //console.log('Success')
-    if (err) { console.error(err) }
-    const fileName = 'tododata.json'
-    //rewrites each time
-    fse.writeFile(`${dir}/${fileName}`, json, (err) => {
-        if (err) console.error(err)
-        console.log('File created successfully')
-    })
-})
-
-
+  //console.log('Success')
+  if (err) {
+    console.error(err);
+  }
+  const fileName = "tododata.json";
+  //rewrites each time
+  fse.writeFile(`${dir}/${fileName}`, json, (err) => {
+    if (err) console.error(err);
+    console.log("File created successfully");
+  });
+});
