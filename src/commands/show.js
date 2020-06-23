@@ -60,7 +60,8 @@ ShowCommand.flags = {
 
 ShowCommand.args = [{
   name: 'all',
-  description: 'List all todos'
+  description: 'List all todos',
+  require: true
 }]
 
 module.exports = ShowCommand

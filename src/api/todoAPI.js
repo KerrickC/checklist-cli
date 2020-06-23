@@ -47,9 +47,6 @@ const derelete = async (data) => {
     } catch (err) {
         console.log(err)
     }
-    //recreate file
-    //get data
-    //put updated data
 }
 
 

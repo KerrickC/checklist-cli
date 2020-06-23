@@ -1,6 +1,7 @@
 const { Command, flags } = require('@oclif/command')
 const todoApi = require('../api/todoAPI')
 const Spinner = require('cli-spinner').Spinner
+const chalk = require('chalk')
 
 
 
@@ -66,12 +67,12 @@ class CompleteCommand extends Command {
               todoApi.derelete(JSON.stringify(dataObj))
 
               //console.log(splicableData)
-
-              console.log('\ntask complete! \n')
+              let taskcomplete = `${chalk.green(`${splicableData[i].title} complete!`)}`
+              console.log('\n task complete! \n')
               spinner.stop()
 
             } else {
-              console.log('\n \ntodo not found!')
+              console.log('\ntodo not found!\n')
               spinner.stop()
             }
           })
