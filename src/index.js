@@ -8,9 +8,12 @@ const dir = `${homedir}/checklist-cli/src/data`;
 
 var dataObj = {
   todos: [],
+  completetodos: [],
 };
 
-dataObj.todos.push({ title: "Sample todo" });
+dataObj.todos.push({ title: "Sample todo", priority: "low" });
+
+dataObj.completetodos.push({ title: "First complete" });
 
 var json = JSON.stringify(dataObj);
 

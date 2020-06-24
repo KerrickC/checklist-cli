@@ -8,13 +8,23 @@ class AddCommand extends Command {
 
     try {
       let priority = flags.priority;
-
+      const complete = flags.complete;
       const name = args.addtodo;
       //"api" call
       if (priority && name) {
-        const data = { nam: `${name}`, prior: `${priority}` };
-        todoApi.putData(data);
-        this.log(`${chalk.green("[Success]")} Added new todo: ${args.addtodo}`);
+        if (complete === true) {
+          const data = { nam: `${name}` };
+          todoApi.putCompleteData(data);
+          this.log(
+            `${chalk.green("[Success]")} Added new complete todo: ${name}`
+          );
+        } else {
+          const data = { nam: `${name}`, prior: `${priority}` };
+          todoApi.putData(data);
+          this.log(
+            `${chalk.green("[Success]")} Added new todo: ${args.addtodo}`
+          );
+        }
       }
     } catch (err) {
       console.error(err);
@@ -40,6 +50,11 @@ AddCommand.flags = {
     description: "Todo priority level - (urgent, important, normal, low)",
     required: true,
     options: ["low", "normal", "important", "urgent"],
+  }),
+  complete: flags.boolean({
+    char: "c",
+    description: "mark as compelete and add to complete list",
+    required: false,
   }),
 };
 

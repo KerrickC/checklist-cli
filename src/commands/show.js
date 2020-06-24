@@ -8,9 +8,7 @@ class ShowCommand extends Command {
   async run() {
     const { args, flags } = this.parse(ShowCommand);
     try {
-      const listAll = args.all;
-
-      if (listAll) {
+      if (args.list === "all") {
         const todosdata = await todoApi.getData();
         //console.log(todosdata)
 
@@ -38,8 +36,28 @@ class ShowCommand extends Command {
           console.log(table.toString());
           spinner.stop();
         }, 2000);
-      } else if (args.completed) {
-        
+      } else if (args.list === "completed") {
+        const todosdata = await todoApi.getData();
+
+        const table = new Table({
+          head: [chalk.blueBright("index"), chalk.blueBright("completed todo")],
+        });
+
+        // console.log(todosdata.todos[0].title)
+
+        todosdata.completetodos.map((n, i) => {
+          const todoName = todosdata.completetodos[i].title;
+          table.push([i + 1, todoName]);
+        });
+
+        var spinner = new Spinner("processing.. %s");
+        spinner.setSpinnerString(4);
+        spinner.start();
+        setTimeout(() => {
+          console.log("");
+          console.log(table.toString());
+          spinner.stop();
+        }, 2000);
       }
     } catch (err) {
       console.log(err);
@@ -49,20 +67,12 @@ class ShowCommand extends Command {
 
 ShowCommand.description = `Displays the list of todos`;
 
-ShowCommand.flags = {
-  index: flags.integer({ char: "i", description: "index of todo" }),
-};
-
 ShowCommand.args = [
   {
-    name: "all",
-    description: "List all todos",
-    require: false,
-  },
-  {
-    name: "completed",
-    description: "List completed todos",
-    require: false,
+    name: "list",
+    description: "List of todos",
+    required: true,
+    option: ["all", "completed"],
   },
 ];
 

@@ -38,28 +38,36 @@ class CompleteCommand extends Command {
       } else if (title) {
         const todosdata = await todoApi.getData();
         const splicableData = todosdata.todos;
-
+        const completedData = todosdata.completetodos;
+        console.log(splicableData);
+        console.log(completedData);
         var spinner = new Spinner("completing task.. %s");
         spinner.setSpinnerString(4);
         spinner.start();
         setTimeout(() => {
           splicableData.find((n, i) => {
+            let complete = { title: `${splicableData[i].title}` };
+
+            completedData.push(complete);
+
             if (splicableData[i].title === title) {
-              splicableData.splice(i, 1);
               var dataObj = {
                 todos: [],
+                completetodos: completedData,
               };
+
+              splicableData.splice(i, 1);
 
               splicableData.map((n, j) => {
                 dataObj.todos.push(splicableData[j]);
               });
 
+              console.log(dataObj);
+
               todoApi.derelete(JSON.stringify(dataObj));
 
               //console.log(splicableData)
-              let taskcomplete = `${chalk.green(
-                `${splicableData[i].title} complete!`
-              )}`;
+              let taskcomplete = `${chalk.green(`complete!`)}`;
               console.log("\n task complete! \n");
               spinner.stop();
             } else {

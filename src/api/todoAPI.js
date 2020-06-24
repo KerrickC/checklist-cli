@@ -27,6 +27,25 @@ const putData = (data) => {
   });
 };
 
+const putCompleteData = (data) => {
+  fse.readFile(dir, (err, data_R) => {
+    if (err) {
+      console.log(err);
+    } else {
+      let dataRecieved = JSON.parse(data_R); //convets to usable object
+      dataRecieved.completetodos.push({
+        title: `${data.nam}`,
+      });
+      let json = JSON.stringify(dataRecieved);
+      fse.writeFile(dir, json, (err) => {
+        if (err) {
+          console.log(err);
+        }
+      });
+    }
+  });
+};
+
 const getData = async () => {
   const data_R = await fse.readFile(dir);
   try {
@@ -38,7 +57,6 @@ const getData = async () => {
 };
 
 const derelete = async (data) => {
-  //delete file
   try {
     await fse.unlink(dir);
     await fse.writeFile(dir, data, (err) => {
@@ -49,4 +67,4 @@ const derelete = async (data) => {
   }
 };
 
-module.exports = { putData, getData, derelete };
+module.exports = { putData, getData, derelete, putCompleteData };

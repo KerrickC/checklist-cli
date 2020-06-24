@@ -1,8 +1,4 @@
 {
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
-  },
-  "license": "MIT",
   "name": "checklist-cli",
   "version": "0.0.0",
   "author": "Kerrick Cavanaugh @KerrickC",
@@ -66,3 +62,7 @@
     "version": "oclif-dev readme && git add README.md"
   }
 }
+
+
+
+

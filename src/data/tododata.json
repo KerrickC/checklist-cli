@@ -1,1 +1,4 @@
-{"todos":[{"title":"newtodothingy","priority":"low"},{"title":"newtodotask1","priority":"low"}]}
+{
+  "todos": [{ "title": "Sample todo", "priority": "low" }],
+  "completetodos": [{ "title": "First complete" }]
+}
